@@ -1,0 +1,7 @@
+SELECT  extract(YEAR FROM starttime) AS year, extract (month from starttime)as month,
+count(starttime) as number_one_way
+FROM `bigquery-public-data.new_york_citibike.citibike_trips` 
+where start_station_name != end_station_name
+group by year, month
+order by year asc, month asc
+LIMIT 1000
